@@ -24,12 +24,12 @@ while cont == true
 		total = 0
 		read.each do |elemento|
 			array = elemento.split("\n")
-			total = array[1].to_i + array[2].to_i + array[3].to_i +  array[4].to_i + array[5].to_i
+			total = array[1].to_i + array[2].to_i + array[3].to_i +  array[4].to_i + array[5].to_i / array.length
 		end 
 		
 		system("touch promedios.txt") 
 		notas = File.open("promedios.txt", "a")
-	
+		file.puts 
 		print "Listado generado exitosamente\n"
 
 	when 2
@@ -40,20 +40,29 @@ while cont == true
 		read.each do |elemento| #itera sobre cada elemnto de "read"
 			array = elemento.split(",") #devuelve un array por cada elemento de "read"
 			ina = 0
-			array.each_with_index do |valor, index|
+			array.each do |valor|
 				if valor == " A" || valor == " A\n"
 					ina = ina + valor.to_i
-						print "El alumno #{array[0]} tiene #{ina} inasistencias."
-				else
-					
-				end
-				
+						puts "El alumno #{array[0]} tiene #{ina} inasistencias."		
+				end			
 			end
 		end
 
-
-
 	when 3
+
+		def promedio (nota_minima)
+			file = File.open("notas.csv", "r") #abre el archivo
+			read = file.readlines #devuelve un array donde cada elemento es una linea
+			file.close 
+			read.each do |elemento| #itera sobre cada elemnto de "read"
+				array = elemento.split(",") #devuelve un array por cada elemento de "read"
+				array.each_with_index do |valor, index|
+					if nota_minima >= 5 
+							print "El alumno #{array[0]} a aprobado con nota #{index}\n"
+					end
+				end
+			end
+		end
 		
 	when 4
 		break
