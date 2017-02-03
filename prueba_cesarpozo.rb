@@ -19,7 +19,7 @@ while cont == true
 	when 1
 
 	print "Generando listado alumnos\n"
-		file = File.open("notas.csv", "r") #abre el archivo
+		file = File.open("notas.csv", "r") 
 		read = file.readlines
 		total = 0
 		read.each do |elemento|
@@ -34,11 +34,11 @@ while cont == true
 
 	when 2
 
-		file = File.open("notas.csv", "r") #abre el archivo
-		read = file.readlines #devuelve un array donde cada elemento es una linea
+		file = File.open("notas.csv", "r") 
+		read = file.readlines 
 		file.close 
-		read.each do |elemento| #itera sobre cada elemnto de "read"
-			array = elemento.split(",") #devuelve un array por cada elemento de "read"
+		read.each do |elemento| 
+			array = elemento.split(",") 
 			ina = 0
 			array.each do |valor|
 				if valor == " A" || valor == " A\n"
@@ -51,11 +51,11 @@ while cont == true
 	when 3
 
 		def promedio (nota_minima)
-			file = File.open("notas.csv", "r") #abre el archivo
-			read = file.readlines #devuelve un array donde cada elemento es una linea
+			file = File.open("notas.csv", "r") 
+			read = file.readlines 
 			file.close 
-			read.each do |elemento| #itera sobre cada elemnto de "read"
-				array = elemento.split(",") #devuelve un array por cada elemento de "read"
+			read.each do |elemento| 
+				array = elemento.split(",") 
 				array.each_with_index do |valor, index|
 					if nota_minima >= 5 
 							print "El alumno #{array[0]} a aprobado con nota #{index}\n"
